@@ -1,21 +1,27 @@
 package pk1.rv.gui;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.layout.BorderPane;
+import pk1.rv.fachlogik.Risiko;
+import pk1.rv.fachlogik.Risikoverwaltung;
 
 
 public class MenueView extends Base {
 	
 
+	
+	
 
 	public Scene createScene() {
 		MenuBar mb= new MenuBar();
 		BorderPane border= new BorderPane();
-
+		
 		Menu menu = new Menu("File");
 		MenuItem fSave= new MenuItem("Laden");
 		MenuItem fLoad= new MenuItem("Speichern");
@@ -24,6 +30,11 @@ public class MenueView extends Base {
 		
 		Menu risiko= new Menu("Risiko");
 		MenuItem rNeuesR= new MenuItem("Neues Risiko");
+		rNeuesR.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent e) {
+				erstelleRisiko();
+			}
+		});
 		
 		Menu anzeige = new Menu("Anzeige");
 		MenuItem aRmmR =new MenuItem("Risiko mit maximaler Rueckstellungen");
@@ -39,5 +50,9 @@ public class MenueView extends Base {
 		
 		return new Scene(border,500,300);
 		
+	}
+	public void erstelleRisiko() {
+		ErstelleRisikoView erstellRisiko = new ErstelleRisikoView(this,new Risiko() );
+		erstellRisiko.showScene();
 	}
 }

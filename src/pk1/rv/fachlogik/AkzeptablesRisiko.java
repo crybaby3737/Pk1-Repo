@@ -26,17 +26,20 @@ public class AkzeptablesRisiko extends Risiko {
 		return "ID: "+getId()+ "Lizenzkosten der IDE steigt" +getErstellungsdatum()+" aus" +
 				"Risikowert "+getKosten_im_schadensfall()+" Rueckstellung= "+ermittleRueckstellung()+"%n";
 	}
+	
 	@Override
 	public void druckeDaten(OutputStream stream) {
 		PrintStream ps=new PrintStream(stream);
 		ps.println(this.toString());
 		
 	}
+	
 	@Override
 	public int hashCode() {
 		
 		return Objects.hash(super.hashCode());
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		

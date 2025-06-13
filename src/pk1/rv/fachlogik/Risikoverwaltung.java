@@ -11,38 +11,38 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import javafx.stage.Stage;
 
 public class Risikoverwaltung implements Serializable{
 
 	private static final long serialVersionUID = 6L;
 
-	private List <Risiko> Verwaltung;
+	private List <Risiko> verwaltung;
 
 	final static String SAVEFILE="C:\\Users\\armin\\Test\\speicher.ser";
 	
-
 	
 	public Risikoverwaltung() {
-		Verwaltung = new ArrayList<Risiko>();
+		verwaltung = new ArrayList<Risiko>();
 	}
 	
 	public void aufnehmen(Risiko a) {
-		Verwaltung.add(a);
+		
+		verwaltung.add(a);
 	}
 	
 	public Iterator<Risiko> iterator(){
 		
-		
-		return Verwaltung.iterator();
+		return verwaltung.iterator();
 		
 	}
 	
 	
 	public void zeigeRisiken(OutputStream stream) {
 		
-		Collections.sort(Verwaltung);
+		Collections.sort(verwaltung);
 		
-		for(Risiko a:Verwaltung) {
+		for(Risiko a:verwaltung) {
 			a.druckeDaten(stream);
 		}
 	}
@@ -52,11 +52,11 @@ public class Risikoverwaltung implements Serializable{
 	
 	public Risiko sucheRisikoMitMaxRueckstellung() {
 		
-		if(Verwaltung.get(0)!=null) {
+		if(verwaltung.get(0)!=null) {
 			
-			Risiko b = Verwaltung.get(0);
+			Risiko b = verwaltung.get(0);
 			
-			for(Risiko a : Verwaltung) {
+			for(Risiko a : verwaltung) {
 				
 				if(b.getKosten_im_schadensfall()<=a.getKosten_im_schadensfall()) {
 					
@@ -71,9 +71,9 @@ public class Risikoverwaltung implements Serializable{
 	}
 
 	public float berechneSummeRuecktellung() {
-		if(Verwaltung.get(0)!=null) {
+		if(verwaltung.get(0)!=null) {
 			float b = 0;
-			for(Risiko a:Verwaltung) {
+			for(Risiko a:verwaltung) {
 				b+=a.getKosten_im_schadensfall();
 			}
 			return b;
@@ -82,12 +82,13 @@ public class Risikoverwaltung implements Serializable{
 			return 0;
 		}
 	}
+	
 	public void speichern() {
 		
 		try (FileOutputStream fos = new FileOutputStream(SAVEFILE);
 				ObjectOutputStream oos = new ObjectOutputStream(fos)) {
 				
-				oos.writeObject(Verwaltung);
+				oos.writeObject(verwaltung);
 			
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -103,7 +104,7 @@ public class Risikoverwaltung implements Serializable{
 		try (FileInputStream fis = new FileInputStream(SAVEFILE);
 				ObjectInputStream ois = new ObjectInputStream(fis)) {
 				
-			this.Verwaltung= (List<Risiko>) ois.readObject();
+			this.verwaltung= (List<Risiko>) ois.readObject();
 			
 			} catch (IOException e) {
 				

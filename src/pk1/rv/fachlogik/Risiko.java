@@ -66,6 +66,7 @@ public abstract class Risiko implements Comparable<Risiko>,  Serializable{
 		
 		return Objects.hash(bezeichnung,eintrittswahrscheinlichkeit,kosten_im_schadensfall);
 	}
+	
 	@Override
 	
 	public boolean equals(Object obj){
@@ -79,6 +80,7 @@ public abstract class Risiko implements Comparable<Risiko>,  Serializable{
 		}
 		return false;
 	}
+	
 	@Override
 	 public int compareTo(Risiko x) {
 		return Double.compare(this.getKosten_im_schadensfall(),x.getKosten_im_schadensfall());

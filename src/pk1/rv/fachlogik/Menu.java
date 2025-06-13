@@ -17,7 +17,8 @@ public class Menu {
 		
 		Risikoverwaltung rverwaltung;
 		
-		String Konsolenausgabe="1. Risiko aufnehmen\n"
+		String Konsolenausgabe=
+				"1. Risiko aufnehmen\n"
 				+ "2. Zeige alle Risiken\n"
 				+ "3. Risikoliste in Datei Schreiben\n"
 				+ "4. Zeige Risiko mit maximaler Rueckstellung\n"
@@ -136,6 +137,8 @@ public void schleife() {
 public void aufnehmen() {
 		
 	String eintrittsWahrscheinlichkeit = JOptionPane.showInputDialog("Fuer gewaehlte Eintrittswahrscheinlichkeit","");
+	
+	
 	boolean fehler=false;
 	float eW=0;
 	
@@ -165,8 +168,8 @@ public void aufnehmen() {
 		
 			if(Limit>(eW*kiS)) {
 				
-				Risiko a= new AkzeptablesRisiko("AkzeptablesRisiko",eW,kiS);
-				rverwaltung.aufnehmen(a);
+				Risiko a = new AkzeptablesRisiko("AkzeptablesRisiko",eW,kiS);
+				//rverwaltung.aufnehmen(a);
 				System.out.println("Es wurde ein AkzeptablesRisiko wird erstellt");
 				
 			}else {
@@ -177,12 +180,12 @@ public void aufnehmen() {
 			if(kostenLimit<(eW*kiS)) {
 				
 				Risiko a= new ExtremesRisiko("ExtremesRisiko",eW,kiS,mas);
-				rverwaltung.aufnehmen(a);
+				//rverwaltung.aufnehmen(a);
 				System.out.println("Es wurde ein ExtremesRisiko wird erstellt");
 			}else {
 				
 				Risiko a= new InakzeptablesRisiko("InakzeptablesRisiko",eW,kiS,mas);
-				rverwaltung.aufnehmen(a);
+				//rverwaltung.aufnehmen(a);
 				System.out.println("Es wurde ein InakzeptablesRisiko wird erstellt");
 				
 			}
