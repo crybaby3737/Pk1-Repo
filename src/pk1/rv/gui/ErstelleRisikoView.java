@@ -13,7 +13,9 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class ErstelleRisikoView extends Base{
+	
 	Risiko rK;
+	
 	public ErstelleRisikoView(Stage stage,Risiko risiko){
 		this.initOwner(stage);
 		this.initModality(Modality.WINDOW_MODAL);
