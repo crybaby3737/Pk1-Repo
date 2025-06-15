@@ -20,16 +20,16 @@ public class ErstelleRisikoView extends Base{
 		rK=risiko;
 	}
 	
-
+		private TextField bezeichnung = new TextField();
+		private TextField eintrittswahrscheinlichkeit = new TextField();
+		private TextField kosten_Im_Schadensfall = new TextField();
 	
 	public Scene createScene() {
 		Label Bz = new Label("Bezeichnung");
 		Label Ews= new Label("Eintrittswahrscheinlichkeit");
 		Label KiS= new Label("Kosten im Schadensfall");
 		
-		TextField Eingabe1 = new TextField();
-		TextField Eingabe2 = new TextField();
-		TextField Eingabe3 = new TextField();
+
 		
 		Button Yes = new Button("Ja");
 		Yes.setOnAction(new EventHandler<ActionEvent>() {
@@ -50,32 +50,37 @@ public class ErstelleRisikoView extends Base{
 		GridPane.setConstraints(Bz, 0, 0);
 		GridPane.setConstraints(Ews, 0, 1);
 		GridPane.setConstraints(KiS, 0, 2);
-		GridPane.setConstraints(Eingabe1, 1, 0);
-		GridPane.setConstraints(Eingabe2, 1, 1);
-		GridPane.setConstraints(Eingabe3, 1, 2);
+		GridPane.setConstraints(bezeichnung, 1, 0);
+		GridPane.setConstraints(eintrittswahrscheinlichkeit, 1, 1);
+		GridPane.setConstraints(kosten_Im_Schadensfall, 1, 2);
 		
 		GridPane.setConstraints(Yes,1,3);
 		GridPane.setConstraints(Cancel,2,3);
 		
-		GridPane.setColumnSpan(Eingabe1, 3);
-		GridPane.setColumnSpan(Eingabe2, 3);
-		GridPane.setColumnSpan(Eingabe3, 3);
+		GridPane.setColumnSpan(bezeichnung, 3);
+		GridPane.setColumnSpan(eintrittswahrscheinlichkeit, 3);
+		GridPane.setColumnSpan(kosten_Im_Schadensfall, 3);
 		
 	
 		grid.setGridLinesVisible(false);
 		grid.setVgap(25);
 		grid.setHgap(25);
 		
-		grid.getChildren().addAll(Bz,Ews,KiS,Eingabe1,Eingabe2,Eingabe3,Yes,Cancel);
+		grid.getChildren().addAll(Bz,Ews,KiS,bezeichnung,eintrittswahrscheinlichkeit,kosten_Im_Schadensfall,Yes,Cancel);
 		grid.setAlignment(Pos.CENTER);
 		return new Scene(grid,600,250);
 	}
-	public void verarbeiteDaten() {
-		
+	public void verarbeiteDaten(){
+		rK.setBezeichnung(bezeichnung.toString());
+		rK.setEintrittswahrscheinlichkeit( Float.parseFloat(eintrittswahrscheinlichkeit.toString()) );
+		rK.setKosten_im_schadensfall( Float.parseFloat(kosten_Im_Schadensfall.toString()) );
 	}
+
 	public void beendeRisikoView() {
-		
+		this.close();
 	}
+	 
+
 	
 
 	

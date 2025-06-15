@@ -83,6 +83,26 @@ public class Risikoverwaltung implements Serializable{
 		}
 	}
 	
+	public void add(Risiko r) {
+		//todo
+	}
+
+	public Risiko delete() {
+		//todo
+		return null;
+	}
+	
+	public Risiko getRisiko(int index) {
+		
+		return verwaltung.get(index);
+		//todo
+	}
+	
+	public void getAll() {
+		//todo
+	}
+	
+	
 	public void speichern() {
 		
 		try (FileOutputStream fos = new FileOutputStream(SAVEFILE);

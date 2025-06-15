@@ -14,8 +14,8 @@ import pk1.rv.fachlogik.Risikoverwaltung;
 
 public class MenueView extends Base {
 	
-
-	
+		Risikoverwaltung rv = new Risikoverwaltung();
+		
 	
 
 	public Scene createScene() {
@@ -51,8 +51,10 @@ public class MenueView extends Base {
 		return new Scene(border,500,300);
 		
 	}
+	
 	public void erstelleRisiko() {
-		ErstelleRisikoView erstellRisiko = new ErstelleRisikoView(this,new Risiko() );
+		ErstelleRisikoView erstellRisiko = new ErstelleRisikoView(this, null); //todo
 		erstellRisiko.showScene();
 	}
+
 }
