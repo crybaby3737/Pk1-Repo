@@ -1,29 +1,27 @@
 package pk1.rv.fachlogik;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import javafx.stage.Stage;
+
+import pk1.rv.datenhaltung.PersistenzException;
+import pk1.rv.datenhaltung.RisikoDAO;
 
 public class Risikoverwaltung implements Serializable{
 
-	private static final long serialVersionUID = 6L;
-
+	//private long serialVersionUID = 6L;
+	private RisikoDAO Dao;
 	private List <Risiko> verwaltung;
 
-	final static String SAVEFILE="C:\\Users\\armin\\Test\\speicher.ser";
+	public String SAVEFILE="C:\\Users\\armin\\Test\\speicher.ser";
 	
 	
-	public Risikoverwaltung() {
+	public Risikoverwaltung(RisikoDAO DAOO) {
 		verwaltung = new ArrayList<Risiko>();
+		Dao = DAOO;
 	}
 	
 	public void aufnehmen(Risiko a) {
@@ -103,38 +101,19 @@ public class Risikoverwaltung implements Serializable{
 	}
 	
 	
-	public void speichern() {
-		
-		try (FileOutputStream fos = new FileOutputStream(SAVEFILE);
-				ObjectOutputStream oos = new ObjectOutputStream(fos)) {
-				
-				oos.writeObject(verwaltung);
-			
-			} catch (IOException e) {
-				e.printStackTrace();
-				System.out.println("Fehler bei der Serialisierung");
-			}
+	public void speichern() throws PersistenzException {
+
+		Dao.speichern(this.verwaltung);
 		
 	}
 	
 	@SuppressWarnings("unchecked")
 	
 	public void laden() {
-		
-		try (FileInputStream fis = new FileInputStream(SAVEFILE);
-				ObjectInputStream ois = new ObjectInputStream(fis)) {
-				
-			this.verwaltung= (List<Risiko>) ois.readObject();
+
+		this.verwaltung= Dao.laden();
 			
-			} catch (IOException e) {
-				
-				System.out.println("Fehler bei der Serialisierung");
-				
-			} catch (ClassNotFoundException e) {
-				
-				e.printStackTrace();
-				
-			}
+
 	}
 
 		

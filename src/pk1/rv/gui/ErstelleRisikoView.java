@@ -1,6 +1,9 @@
 package pk1.rv.gui;
 
 import pk1.rv.fachlogik.*;
+
+import javax.swing.JOptionPane;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -26,6 +29,11 @@ public class ErstelleRisikoView extends Base{
 		private TextField eintrittswahrscheinlichkeit = new TextField();
 		private TextField kosten_Im_Schadensfall = new TextField();
 	
+		
+	public Risiko getRisiko() {
+		return rK;
+	}
+		
 	public Scene createScene() {
 		Label Bz = new Label("Bezeichnung");
 		Label Ews= new Label("Eintrittswahrscheinlichkeit");
@@ -72,10 +80,46 @@ public class ErstelleRisikoView extends Base{
 		grid.setAlignment(Pos.CENTER);
 		return new Scene(grid,600,250);
 	}
+	
 	public void verarbeiteDaten(){
-		rK.setBezeichnung(bezeichnung.toString());
-		rK.setEintrittswahrscheinlichkeit( Float.parseFloat(eintrittswahrscheinlichkeit.toString()) );
-		rK.setKosten_im_schadensfall( Float.parseFloat(kosten_Im_Schadensfall.toString()) );
+		
+		float Limit= 10000;
+		float kostenLimit=1000000;
+		
+		String bz= bezeichnung.getText();//rK.setBezeichnung();
+		Float eW=Float.parseFloat(eintrittswahrscheinlichkeit.getText());//rK.setEintrittswahrscheinlichkeit();
+		Float kiS=Float.parseFloat(kosten_Im_Schadensfall.getText()); //rK.setKosten_im_schadensfall( );
+		String mas="";
+		if(Limit>(eW*kiS)) {
+			
+			rK.setBezeichnung(bz);
+			rK.setEintrittswahrscheinlichkeit(eW);
+			rK.setKosten_im_schadensfall(kiS);
+			
+			//rverwaltung.aufnehmen(a);
+//			System.out.println("Es wurde ein AkzeptablesRisiko wird erstellt");
+			
+		}else {
+			
+			
+			MassnahmenView msnView= new MassnahmenView(this);
+			
+			msnView.showScene();
+			mas=msnView.getmsnView();
+		}
+		
+		if(kostenLimit<(eW*kiS)) {
+			
+			rK= new ExtremesRisiko(bz,eW,kiS,mas);
+
+		}else {
+			
+			rK= new InakzeptablesRisiko(bz,eW,kiS,mas);
+
+		}
+		
+		//this.close();
+			
 	}
 
 	public void beendeRisikoView() {

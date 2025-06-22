@@ -6,4 +6,5 @@ module Pk1Ueb09 {
 	requires javafx.base;
 	opens pk1.rv.gui to javafx.controls, javafx.base, javafx.graphics;
 	opens pk1.rv.fachlogik to javafx.controls, javafx.base, javafx.graphics;
+	opens pk1.rv.datenhaltung to javafx.controls, javafx.base, javafx.graphics;
 }

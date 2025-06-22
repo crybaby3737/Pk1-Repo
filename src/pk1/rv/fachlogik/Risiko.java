@@ -6,7 +6,9 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public abstract class Risiko implements Comparable<Risiko>,  Serializable{
-	Risikoverwaltung Verwaltung = new Risikoverwaltung();
+	
+//Risikoverwaltung Verwaltung = new Risikoverwaltung();
+	
 	private static final long serialVersionUID= 1L;
 	private int id;
 	private String bezeichnung;
