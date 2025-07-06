@@ -7,6 +7,8 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import pk1.rv.datenhaltung.PersistenzException;
 import pk1.rv.datenhaltung.RisikoDAO;
 
@@ -96,9 +98,22 @@ public class Risikoverwaltung implements Serializable{
 		//todo
 	}
 	
-	public void getAll() {
-		//todo
+	public Object[] getAll() {
+		
+		return verwaltung.stream().toArray();
+		
 	}
+	public ObservableList<Risiko> getVerwaltungList() {
+		 
+		return FXCollections.observableArrayList(verwaltung);
+		
+	}
+
+//	public void getAllAsLabel() {
+//		
+//		 );
+//	
+//	}
 	
 	
 	public void speichern() throws PersistenzException {

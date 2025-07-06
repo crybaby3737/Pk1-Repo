@@ -23,7 +23,7 @@ public class AkzeptablesRisiko extends Risiko {
 	@Override
 	public  String toString() {
 		
-		return "ID: "+getId()+ "Lizenzkosten der IDE steigt" +getErstellungsdatum()+" aus" +
+		return "ID: "+getId()+ " Lizenzkosten der IDE steigt " +getErstellungsdatum()+" aus " +
 				"Risikowert "+getKosten_im_schadensfall()+" Rueckstellung= "+ermittleRueckstellung()+"%n";
 	}
 	

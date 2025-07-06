@@ -32,7 +32,7 @@ public class ExtremesRisiko extends InakzeptablesRisiko {
 @Override
 public String toString() {
 	return String.format("ID: %d Extremes Risiko Hauptauftraeger meldet Insolvenz an "+
-			" aus %s Versicherungsbeitrag %f Versicherung abschliessen%n",
+			" aus %s Versicherungsbeitrag %f Versicherung abschliessen %n",
 			this.getId(),getErstellungsdatum(),this.versicherungsbeitrag);
 }
 	

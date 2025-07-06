@@ -30,7 +30,7 @@ public class InakzeptablesRisiko extends Risiko{
 		return getKosten_im_schadensfall();
 	}
 public String toString() {
-	return String.format("Id %d %s DB Expterte verlässt das Projekt"+
+	return String.format("Id %d %s DB Expterte verlaesst das Projekt"+
 			" aus %s Risikowert %f Rueckstellung: %f%n",getId(),getBezeichnung(),
 			getErstellungsdatum(),getKosten_im_schadensfall(), ermittleRueckstellung()+ massnahme);
 }
