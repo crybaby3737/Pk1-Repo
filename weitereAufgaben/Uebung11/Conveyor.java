@@ -1,21 +1,26 @@
 package Uebung11;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Conveyor {
-	Bottle b;
-	public Conveyor() {
-		b=new Bottle();
-	}
+	private static final int LAUFBAND = 50;
+	private final Queue<Bottle> que = new LinkedList<>();
 	
-	public void load(Bottle b) {
+	public Conveyor() {
 		
 	}
-	public Bottle withdrawl() {
+	
+	public synchronized void load(Bottle b) {
+		
+	}
+	public synchronized Bottle withdrawl() {
 		return null;
 	}
-	public boolean isEmpty() {
+	public synchronized boolean isEmpty() {
 		return false;
 	}
-	public boolean isOverloaded() {
+	public synchronized boolean isOverloaded() {
 		return false;
 	}
 	

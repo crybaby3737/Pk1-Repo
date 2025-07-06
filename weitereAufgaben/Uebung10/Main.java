@@ -15,16 +15,16 @@ public class Main extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 		
-		Zeitansage zs = new Zeitansage();
-		Timer t = new Timer(zs);
-		Thread th = new Thread(t);
+		Zeitansage zeitans = new Zeitansage();
+		Timer timer = new Timer(zeitans);
+		Thread thread = new Thread(timer);
 		
-		th.start();
+		thread.start();
 		
 		MessageView m = MessageView.create(null, "Halllo", "Interuptieren");
 		m.showView();
 		
-		th.interrupt();
+		thread.interrupt();
 		
 	}
 
