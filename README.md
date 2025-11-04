@@ -1,4 +1,4 @@
-Das ist das Ergebnis meines Praktikums im Modul Programmierkurs 1
+Das ist das Ergebnis meines Praktikums im Modul Programmierkurs 1.
 Ich habe eine weiteres Repository wo ich alle Vorlesungsaufgaben einzeln bearbeitet habe:
 https://github.com/crybaby3737/VL-Aufgaben
 Die Aufgaben beinhalten Themen wie:
