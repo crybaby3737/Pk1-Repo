@@ -3,14 +3,14 @@ Ich habe eine weiteres Repository wo ich alle Vorlesungsaufgaben einzeln bearbei
 https://github.com/crybaby3737/VL-Aufgaben
 Die Aufgaben beinhalten Themen wie:
 
-Java Exceptions
-Java IO
-Java Streams
-Java Serialisierung
-Java Klassen(innere Klassen/anonyme Klassen)
-Java Properties & Bindings
-Java Thread
-JavaFX
-Java Stream-API(Lambdas)
+Java Exceptions,
+Java IO,
+Java Streams,
+Java Serialisierung,
+Java Klassen(innere Klassen/anonyme Klassen),
+Java Properties & Bindings,
+Java Thread,
+JavaFX,
+Java Stream-API(Lambdas).
 
 Sowie auch theoretisches Wissen einer Drei Schichten Architektur
